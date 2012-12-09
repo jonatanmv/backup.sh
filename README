@@ -1,0 +1,66 @@
+
+man(1)                        backup.sh man page                        man(1)
+
+
+
+NAMME
+       backup.sh − synchronize files and filder to external USB disk or remote
+       rsync server via ssh
+
+
+SYNOPSIS
+       backup.sh is a shell script for backing  up  folders  and  files  using
+       rsync or external USB drive.
+
+
+DESCRIPTION
+       backup  reads  the  backup.conf, backup.include and backup.exclude text
+       files and then syncronizes folders and files acording those  configura‐
+       tion text files.
+
+
+OPTIONS
+       You  can configure the behaviour via text files. This config files are:
+       "backup.conf" ‐‐> General configuration file  with  backup  destination
+       definition.   INCLUDE ("include.txt") ‐‐> Includes the files and foldes
+       to be synched.  EXCLUDE ("exclude.txt")  ‐‐>  Includes  the  files  you
+       don’t want to be synched.
+
+
+EXAMPLE
+       An  example  of execution (after configuration files are done) is quite
+       simple: "sh backup.sh".  This backup can be added to the cron in  order
+       to make if automatic.
+
+
+SEE ALSO
+       rsync(1) cron(8)
+
+
+BUGS
+       No known bugs.
+
+
+AUTHOR
+       Jonatan Morales <jonatan.mv@gmail.com>
+
+
+INSTALL
+   Linux or Mac
+       To install the bakup.sh utility in Linux os Mac:
+       1. Create the folder /opt/backup.sh
+       2. Copy the backup.sh file to the created folder /opt/backup.sh/
+       3. Copy the backup.conf file to /opt/backup.sh/
+       4. Edit and personalize the config file (read the sample backup.conf to
+       understand the different parameters available)
+       5. Create the INCLUDE (include.txt) file in /opt/backup.sh/ folder
+       6. Create the EXCLUDE (exclude.txt) file in /opt/backup.sh/ folder
+
+
+   Windows
+       For windows users you can install the cygwin software and  then  follow
+       the previous steps
+
+
+
+v1.0                              2012‐12‐01                            man(1)
