@@ -1,10 +1,9 @@
-
 man(1)                        backup.sh man page                        man(1)
 
 
 
 NAMME
-       backup.sh − synchronize files and filder to external USB disk or remote
+       backup.sh − synchronize files and folder to external USB disk or remote
        rsync server via ssh
 
 
