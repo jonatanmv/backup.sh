@@ -2,7 +2,7 @@
 .\" To view this man page you can execute: nroff -man backup.manpage | less
 .\" Contact jonatan.mv@gmail.com to correct errors or typos.
 
-.TH man 1 "2012-12-01" "v1.0" "backup.sh man page"
+.TH man 1 "2018-12-10" "v1.0" "backup.sh man page"
 
 .SH NAME
 backup.sh \- synchronize files and filder to external USB disk or remote rsync server via ssh
@@ -16,6 +16,7 @@ backup reads the backup.conf, backup.include and backup.exclude text files and t
 .SH OPTIONS
 You can configure the behaviour via text files. This config files are:
 "backup.conf" --> General configuration file with backup destination definition.
+The config file should be in the same folder where the script is installed.
 INCLUDE ("include.txt") --> Includes the files and foldes to be synched.
 EXCLUDE ("exclude.txt") --> Includes the files you don't want to be synched.
 
@@ -30,14 +31,14 @@ rsync(1) cron(8)
 No known bugs.
 
 .SH AUTHOR
-Jonatan Morales <jonatan.mv@gmail.com>
+@2004 by Jonatan Morales <jonatan.mv@gmail.com>
 
 .SH INSTALL
 
 .SS Linux or Mac
 To install the bakup.sh utility in Linux os Mac:
 .br
-1. Create the folder /opt/backup.sh
+1. Create a folder to install the script, for example /opt/backup.sh
 .br
 2. Copy the backup.sh file to the created folder /opt/backup.sh/
 .br
