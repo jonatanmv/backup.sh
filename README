@@ -1,9 +1,10 @@
+
 man(1)                        backup.sh man page                        man(1)
 
 
 
-NAMME
-       backup.sh − synchronize files and folder to external USB disk or remote
+NAME
+       backup.sh − synchronize files and filder to external USB disk or remote
        rsync server via ssh
 
 
@@ -24,6 +25,7 @@ OPTIONS
        definition.   INCLUDE ("include.txt") ‐‐> Includes the files and foldes
        to be synched.  EXCLUDE ("exclude.txt")  ‐‐>  Includes  the  files  you
        don’t want to be synched.
+       The config file should be saved in the same folder where the script is.
 
 
 EXAMPLE
@@ -41,7 +43,7 @@ BUGS
 
 
 AUTHOR
-       Jonatan Morales <jonatan.mv@gmail.com>
+       @2004 by Jonatan Morales <jonatan.mv@gmail.com>
 
 
 INSTALL
