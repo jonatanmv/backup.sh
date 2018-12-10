@@ -11,7 +11,8 @@ backup.sh \- synchronize files and filder to external USB disk or remote rsync s
 backup.sh is a shell script for backing up folders and files using rsync or external USB drive.
 
 .SH DESCRIPTION
-backup reads the backup.conf, backup.include and backup.exclude text files and then syncronizes folders and files acording those configuration text files.
+backup reads the backup.conf, backup.include and backup.exclude text files and then syncronizes
+folders and files acording those configuration text files.
 
 .SH OPTIONS
 You can configure the behaviour via text files. This config files are:
