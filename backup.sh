@@ -1,12 +1,4 @@
 #!/bin/sh
-#
-# File:    backup.sh
-# Author:  Jonatan Morales - jonatan.mv@gmail.com
-# Created: 2004
-# Updated: 2012-12-07
-#
-# Description: Backup to remote server via ssh according txt files backup.sh_include and backup.sh_exclude
-#
 
 # Init
 timestamp=$(date +%Y%m%d_%H%M) # Take care not to use ":" in filenames
@@ -15,7 +7,7 @@ timestamp=$(date +%Y%m%d_%H%M) # Take care not to use ":" in filenames
 EMAIL=
 
 # Configuration by text files
-CONFIG_FILE=/opt/backup.sh/backup.conf
+CONFIG_FILE=$(dirname "$0")/backup.conf
 
 if [[ -f $CONFIG_FILE ]]
 then
@@ -27,8 +19,10 @@ fi
 
 # Mirrowing to remote ssh server
 if [ $MODE -eq 0 -o $MODE -eq 3 ]; then
-    RSYNC_OPTS="-avxz -S --delete --delete-excluded --exclude-from=$EXCLUDE --backup --backup-dir=$MIRROR_OLD --suffix=$MIRROR_OLDSUFFIX"
-
+    RSYNC_OPTS="-avxz -S --delete --delete-excluded --exclude-from=$EXCLUDE"
+    if [ $HIST -eq 1 ]; then
+	RSYNC_OPTS="$RSYNC_OPTS --backup --backup-dir=$MIRROR_OLD --suffix=$MIRROR_OLDSUFFIX"
+    fi
     echo "(conecting to ssh server... $HOST)" | tee -a $LOG
     if [ $MOUNT_CMD ]
     then
@@ -70,15 +64,15 @@ fi
 
 # Mirrowing Documents and specific folders to external usb drive
 if [ $MODE -eq 2 -o $MODE -eq 3 ]; then
-    MIRROR=/Volumes/BACKUP/
-    MIRROR_OLD=$MIRROR/macbook_old/
-    MIRROR_OLDSUFFIX=_rsync.$timestamp
     RSYNC_OPTS="-avxz -S --delete --delete-excluded --exclude-from=$EXCLUDE"
+    if [ $HIST -eq 1 ]; then
+	RSYNC_OPTS="$RSYNC_OPTS --backup --backup-dir=$MIRROR_OLD --suffix=$MIRROR_OLDSUFFIX"
+    fi
     echo "Backing up to external USB disk ..."
     cat $INCLUDE | while read dir
     do
 	echo | tee -a $LOG
 	echo "*** $timestamp Mirrowing [$dir] ..." | tee -a $LOG
-	rsync $RSYNC_OPTS  "$dir" $MIRROR | tee -a $LOG
+	rsync $RSYNC_OPTS  "$dir" $USB_MIRROR | tee -a $LOG
     done
 fi
