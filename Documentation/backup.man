@@ -30,7 +30,7 @@ rsync(1) cron(8)
 No known bugs.
 
 .SH AUTHOR
-Jonatan Morales <jonatan.mv@gmail.com>
+@2004 by Jonatan Morales <jonatan.mv@gmail.com>
 
 .SH INSTALL
 

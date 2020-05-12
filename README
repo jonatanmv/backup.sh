@@ -3,7 +3,7 @@ man(1)                        backup.sh man page                        man(1)
 
 
 
-NAMME
+NAME
        backup.sh − synchronize files and filder to external USB disk or remote
        rsync server via ssh
 
@@ -42,7 +42,7 @@ BUGS
 
 
 AUTHOR
-       Jonatan Morales <jonatan.mv@gmail.com>
+       @2004 by Jonatan Morales <jonatan.mv@gmail.com>
 
 
 INSTALL
